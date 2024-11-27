@@ -8,8 +8,11 @@ void main() {
   runZonedGuarded(
     () => runApp(const EffectiveCartApp()),
     (error, stack) {
-      log(error.toString(),
-          name: 'Effective Cart App Error', stackTrace: stack);
+      log(
+        error.toString(),
+        name: 'Effective Cart App Error',
+        stackTrace: stack,
+      );
     },
   );
 }
