@@ -1,0 +1,23 @@
+name: effective_cart
+description: "A test project for BLoC"
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+
+dev_dependencies:
+  bloc_test: ^9.1.7
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  
+
+flutter:
+  uses-material-design: true
