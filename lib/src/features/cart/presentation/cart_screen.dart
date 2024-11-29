@@ -37,12 +37,22 @@ class _CartScreen extends StatelessWidget {
             SizedBox.square(
               dimension: 32,
               child: Center(
-                child: BlocListener<CartBloc, CartState>(
+                child: BlocConsumer<CartBloc, CartState>(
                   listener: (context, state) => {
                     if (state is ErrorCartState && state.cartQuantity == 0)
                       _showSnackbar(context, 'Корзина пуста'),
                     if (state is ErrorCartState && state.cartQuantity == 10)
                       _showSnackbar(context, 'В корзине больше нет места')
+                  },
+                  buildWhen: (previous, current) => current is! IdleCartState,
+                  builder: (context, state) {
+                    if (state is ProgressCartState) {
+                      return const CircularProgressIndicator();
+                    }
+                    return Text(
+                      state.cartQuantity.toString(),
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    );
                   },
                 ),
               ),
